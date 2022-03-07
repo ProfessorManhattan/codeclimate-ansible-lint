@@ -1,0 +1,1 @@
+docker-slim build --tag codeclimate/codeclimate-ansible-lint:slim --http-probe=false --exec 'ansible-lint --version' --preserve-path-file 'paths.txt' codeclimate/codeclimate-ansible-lint:latest && prettier --write slim.report.json

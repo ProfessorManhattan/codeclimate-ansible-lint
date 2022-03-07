@@ -1,93 +1,184 @@
-# Ansible Lint
+<!-- ⚠️ This README has been generated from the file(s) "./.modules/docs/blueprint-readme-ci-slim.md" ⚠️--><div align="center">
+  <center>
+    <a href="https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint">
+      <img width="140" height="140" alt="Ansible Lint logo" src="https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/-/raw/master/logo.png" />
+    </a>
+  </center>
+</div>
+<div align="center">
+  <center><h1>Ansible Lint - Code Climate Engine</h1></center>
+  <center><h4 style="color: #18c3d1;">A <a href="https://megabyte.space">Megabyte Labs</a> Dockerfile project for CodeClimate engines / Latest build includes Ansible Lint v5.0.12</h4></center>
+</div>
+<!--
+<div align="center">
+  <h4 align="center">
+    <a href="https://megabyte.space" title="Megabyte Labs homepage" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/home-solid.svg" />
+    </a>
+    <a href="https://hub.docker.com/u/megabytelabs" title="Megabyte Labs profile on DockerHub" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/dockerhub-profile-solid.svg" />
+    </a>
+    <a href="https://hub.docker.com/r/megabytelabs/ansible-lint" title="DockerHub page for this project" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/dockerhub-image-solid.svg" />
+    </a>
+    <a href="https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/-/blob/master/CONTRIBUTING.md" title="Learn about contributing" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/contributing-solid.svg" />
+    </a>
+    <a href="https://www.patreon.com/ProfessorManhattan" title="Support us on Patreon" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/support-solid.svg" />
+    </a>
+    <a href="https://app.slack.com/client/T01ABCG4NK1/C01NN74H0LW/details/" title="Slack chat room" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/chat-solid.svg" />
+    </a>
+    <a href="https://github.com/ProfessorManhattan/docker-ansible-lint" title="GitHub mirror" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/github-solid.svg" />
+    </a>
+    <a href="https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint" title="GitLab repository" target="_blank">
+      <img src="https://gitlab.com/megabyte-labs/assets/-/raw/master/svg/gitlab-solid.svg" />
+    </a>
+  </h4>
+  <p align="center">
+    <a href="https://hub.docker.com/repository/docker/megabytelabs/ansible-lint" target="_blank">
+      <img alt="Version" src="https://img.shields.io/docker/v/megabytelabs/ansible-lint?logo=docker&logoColor=white&sort=date&style=flat" />
+    </a>
+    <a href="https://hub.docker.com/repository/docker/megabytelabs/ansible-lint" target="_blank">
+      <img alt="DockerHub image size: Ansible Lint" src="https://img.shields.io/docker/image-size/megabytelabs/ansible-lint?logo=docker&sort=date&logoColor=white&style=flat">
+    </a>
+    <a href="https://hub.docker.com/repository/docker/megabytelabs/ansible-lint" target="_blank">
+      <img alt="DockerHub pulls: Ansible Lint" src="https://img.shields.io/docker/pulls/megabytelabs/ansible-lint?logo=docker&logoColor=white&style=flat" />
+    </a>
+    <a href="https://hub.docker.com/repository/docker/megabytelabs/ansible-lint" target="_blank">
+      <img alt="DockerHub stars: Ansible Lint" src="https://img.shields.io/docker/stars/megabytelabs/ansible-lint?logo=docker&logoColor=white&style=flat" />
+    </a>
+    <a href="https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/-/commits/master" target="_blank">
+      <img alt="GitLab pipeline status" src="https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/badges/master/pipeline.svg?style=flat" />
+    </a>
+    <a href="https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/-/raw/master/LICENSE" target="_blank">
+      <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat" />
+    </a>
+    <a href="profile.opencollective" title="Support us on Open Collective" target="_blank">
+      <img alt="Open Collective sponsors" src="https://img.shields.io/opencollective/sponsors/megabytelabs?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAElBMVEUAAACvzfmFsft4pfD////w+P9tuc5RAAAABHRSTlMAFBERkdVu1AAAAFxJREFUKM9jgAAXIGBAABYXMHBA4yNEXGBAAU2BMz4FIIYTNhtFgRjZPkagFAuyAhGgHAuKAlQBCBtZB4gzQALoDsN0Oobn0L2PEUCoQYgZyOjRQFiJA67IRrEbAJImNwFBySjCAAAAAElFTkSuQmCC&label=Open%20Collective%20sponsors&logo=opencollective&style=flat" />
+    </a>
+    <a href="https://github.com/ProfessorManhattan" title="Support us on GitHub" target="_blank">
+      <img alt="GitHub sponsors" src="https://img.shields.io/github/sponsors/ProfessorManhattan?label=GitHub%20sponsors&logo=github&style=flat" />
+    </a>
+    <a href="https://github.com/ProfessorManhattan" target="_blank">
+      <img alt="GitHub: ProfessorManhattan" src="https://img.shields.io/github/followers/ProfessorManhattan?style=social" target="_blank" />
+    </a>
+    <a href="https://twitter.com/MegabyteLabs" target="_blank">
+      <img alt="Twitter: MegabyteLabs" src="https://img.shields.io/twitter/url/https/twitter.com/MegabyteLabs.svg?style=social&label=Follow%20%40MegabyteLabs" />
+    </a>
+  </p>
+</div>
+-->
+<!-- </br><h3 align="center">**Node.js files/configurations that support the creation of Dockerfiles**</h3></br>-->
 
-Needs engine but the CLI supports CodeClimate format as an output. Sample configuration stored in the main repository.
+<!--TERMINALIZER![terminalizer_title](https://gitlab.com/megabyte-labs/ansible-roles/role_name/-/raw/master/.demo.gif)TERMINALIZER-->
 
-## Getting started
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#table-of-contents)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## ➤ Table of Contents
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- [➤ Overview](#-overview)
+- [➤ Requirements](#-requirements)
+  - [Optional Requirements](#optional-requirements)
+- [➤ Example Usage](#-example-usage)
+  - [Building the Docker Container](#building-the-docker-container)
+  - [Building a Slim Container](#building-a-slim-container)
+  - [Test](#test)
+- [➤ Contributing](#-contributing)
+- [➤ License](#-license)
 
-## Add your files
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#overview)
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## ➤ Overview
 
+Code climate engine for Ansible Lint
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#requirements)
+
+## ➤ Requirements
+
+- **[Docker](https://gitlab.com/megabyte-labs/ansible-roles/docker)**
+- [CodeClimate CLI](https://github.com/codeclimate/codeclimate)
+
+### Optional Requirements
+
+- [DockerSlim](https://gitlab.com/megabyte-labs/ansible-roles/dockerslim) - Used for generating compact, secure images
+- [Google's Container structure test](https://github.com/GoogleContainerTools/container-structure-test) - For testing the Docker images
+
+
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#example-usage)
+
+
+## ➤ Example Usage
+
+The Code Climate engine built using this repository can be used for analysis using code climate cli. 
+
+```shell
+codeclimate analyze
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/megabyte-labs/docker/codeclimate/ansible-lint.git
-git branch -M master
-git push -uf origin master
+
+This allows you to run code climate analysis from the root of  your project directory. Ensure `.codeclimate.yml` file is present on the root of your project directory. A sample configuration of this file  is present in this repository.Once the analysis is complete it will display the results in code climate format.
+
+If you have created the docker image locally and wish to test it you can do so using below command
+
+```shell
+codeclimate analyze --dev
+```
+In order to run slim docker image of this engine , please pull the latest slim docker image locally ( or create one ) and retag it to latest before running the same.
+
+
+
+### Building the Docker Container
+
+Run the below make command from the root of this repository to create a local fat docker image
+```shell
+make image
 ```
 
-## Integrate with your tools
+### Building a Slim Container
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://gitlab.com/megabyte-labs/docker/codeclimate/ansible-lint/-/settings/integrations)
+Run the below make command from the root of this repository to create a local slim docker image
+```shell
+make slim
+```
 
-## Collaborate with your team
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Test
 
-## Test and Deploy
+Run the below command from the root of this repository to test the images created by this repository.
+```shell
+make test
+```
 
-Use the built-in continuous integration in GitLab.
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## ➤ Contributing
 
-***
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/-/issues). If you would like to contribute, please take a look at the [contributing guide](https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/-/blob/master/CONTRIBUTING.md).
 
-# Editing this README
+<details>
+<summary>Sponsorship</summary>
+<br/>
+<blockquote>
+<br/>
+I create open source projects out of love. Although I have a job, shelter, and as much fast food as I can handle, it would still be pretty cool to be appreciated by the community for something I have spent a lot of time and money on. Please consider sponsoring me! Who knows? Maybe I will be able to quit my job and publish open source full time.
+<br/><br/>Sincerely,<br/><br/>
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:ebd84bea9599be6dfad6c1facd29ad57?https://www.makeareadme.com/) for this template.
+**_Brian Zalewski_**<br/><br/>
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+</blockquote>
 
-## Name
-Choose a self-explaining name for your project.
+<a href="https://www.patreon.com/ProfessorManhattan">
+  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+</details>
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## ➤ License
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
-
+Copyright © 2021 [Megabyte LLC](https://megabyte.space). This project is [MIT](https://gitlab.com/megabyte-labs/dockerfile/ci-pipeline/ansible-lint/-/raw/master/LICENSE) licensed.
