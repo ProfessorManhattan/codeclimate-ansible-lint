@@ -1,0 +1,11 @@
+---
+- name: Include variables based on the operating system
+  include_vars: '{{ ansible_os_family }}.yml'
+
+- name: Should be an error
+  shell: echo hey
+
+- name: Include tasks based on the operating system
+  become: true
+  block:
+    - include_tasks: 'install-{{ ansible_os_family }}.yml'
