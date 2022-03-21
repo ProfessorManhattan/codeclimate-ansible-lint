@@ -1,4 +1,3 @@
-/etc/ssl/certs
 /usr/bin/ansible
 /usr/bin/ansible-config
 /usr/bin/ansible-connection
@@ -11,4 +10,3 @@
 /usr/bin/ansible-pull
 /usr/bin/ansible-test
 /usr/bin/ansible-vault
-/usr/lib/python3.9

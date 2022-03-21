@@ -83,14 +83,16 @@
     "description": "An Ansible Lint slim container and a CodeClimate engine container for GitLab CI",
     "dockerBaseTag": "ansible-lint",
     "dockerLatestSize": {
-      "ansible-lint": ""
+      "ansible-lint": "157M",
+      "codeclimate": "157M"
     },
     "dockerSlimCommand": {
       "ansible-lint": "--http-probe=false --exec 'ansible-lint --version' --preserve-path-file 'local/paths.txt'",
-      "codeclimate-ansible-lint": "--http-probe=false --exec 'ansible-lint --version' --preserve-path-file 'local/paths.codeclimate.txt'"
+      "codeclimate": "--http-probe=false --exec 'ansible-lint --version && codeclimate-ansible-lint' --preserve-path-file 'local/paths.codeclimate.txt'"
     },
     "dockerSlimSize": {
-      "ansible-lint": ""
+      "ansible-lint": "197M",
+      "codeclimate": "197M"
     },
     "group": "docker",
     "name": "Ansible Lint",
@@ -102,7 +104,8 @@
     "slug": "ansible-lint",
     "subgroup": "codeclimate",
     "title": "Ansible Lint CodeClimate Engine",
-    "versionCommand": "docker run -it megabytelabs/ansible-lint:latest --version | sed 's/^[^ ]* //' | sed 's/ .*$//'"
+    "versionCommand": "docker run -it megabytelabs/ansible-lint:latest --version | sed 's/^[^ ]* //' | sed 's/ .*$//'",
+    "github_id": "R_kgDOHCYcyg"
   },
   "changelog": {
     "displayTypes": [
@@ -115,9 +118,7 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
+    "extends": [],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "engine": "node >= 0.12.4",

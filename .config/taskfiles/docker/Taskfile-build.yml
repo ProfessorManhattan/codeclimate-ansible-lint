@@ -134,8 +134,6 @@ tasks:
       - :install:software:docker
       - :install:software:gzip
     vars:
-      DOCKER_IMAGE:
-        sh: jq -r '.blueprint.slug' package.json
       SLUG:
         sh: echo "{{if .CLI_ARGS}}{{.CLI_ARGS}}{{else}}$(jq -r '.blueprint.slug' package.json){{end}}"
       TAG_POST: '{{if ne .DOCKER_BASE_TAG .CLI_ARGS}}-{{.CLI_ARGS}}{{end}}'
@@ -158,15 +156,15 @@ tasks:
       - :install:software:jq
     vars:
       DOCKER_IMAGE_SLUG:
-        sh: jq -r '.blueprint.slug' package.json
+        sh: echo "{{if .CLI_ARGS}}{{.CLI_ARGS}}{{else}}$(jq -r '.blueprint.slug' package.json){{end}}"
       PREVIOUS_REGULAR_SIZE:
         sh: jq --arg slug '{{.DOCKER_IMAGE_SLUG}}' -r '.blueprint.dockerLatestSize[$slug]' package.json
       PREVIOUS_SLIM_SIZE:
         sh: jq --arg slug '{{.DOCKER_IMAGE_SLUG}}' -r '.blueprint.dockerSlimSize[$slug]' package.json
       REGULAR_SIZE:
-        sh: stat -c%s {{.DOCKER_IMAGE}}:latest{{if ne .DOCKER_BASE_TAG .CLI_ARGS}}-{{.CLI_ARGS}}{{end}}.tar.gz | numfmt --to iec
+        sh: stat -c%s latest{{if ne .DOCKER_BASE_TAG .CLI_ARGS}}-{{.CLI_ARGS}}{{end}}.tar.gz | numfmt --to iec
       SLIM_SIZE:
-        sh: stat -c%s {{.DOCKER_IMAGE}}:slim{{if ne .DOCKER_BASE_TAG .CLI_ARGS}}-{{.CLI_ARGS}}{{end}}.tar.gz | numfmt --to iec
+        sh: stat -c%s slim{{if ne .DOCKER_BASE_TAG .CLI_ARGS}}-{{.CLI_ARGS}}{{end}}.tar.gz | numfmt --to iec
     log:
       error: Failed to acquire / inject `:slim` image file size information into `package.json` blueprint data
       start: Injecting `:slim` image file size into `package.json` blueprint data
@@ -184,10 +182,10 @@ tasks:
 
   slim:sizes:clean:
     cmds:
-      - rm -f *-latest.tar.gz
-      - rm -f *-latest.tar
-      - rm -f *-slim.tar.gz
-      - rm -f *-slim.tar
+      - rm -f latest*.tar.gz
+      - rm -f latest*.tar
+      - rm -f slim*.tar.gz
+      - rm -f slim*.tar
     status:
       - >
         ! test -n "$(find . -maxdepth 1 -name '*.tar.gz' -print -quit)"

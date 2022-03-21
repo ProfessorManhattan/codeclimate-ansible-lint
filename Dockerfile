@@ -1,38 +1,32 @@
-FROM alpine:3 AS build
-
-RUN apk --no-cache add \
-  bc~=1 \
-  cargo~=1 \
-  gcc~=10 \
-  libffi-dev~=3 \
-  musl-dev~=1 \
-  openssl-dev~=1 \
-  python3~=3 \
-  python3-dev~=3 \
-  py3-pip~=20 \
-  rust~=1 \
-  && pip3 install --no-cache-dir \
-  "ansible==3.*" \
-  && pip3 install --no-cache-dir --no-compile \
-  "ansible-lint==5.*"
-
-FROM alpine:3 AS codeclimate-ansible-lint
+FROM alpine:3 AS codeclimate
 
 ENV container docker
 
-COPY --from=build /usr/lib/python3.9/site-packages/ /usr/lib/python3.9/site-packages/
-COPY --from=build /usr/bin/ansible-lint /usr/bin/ansible-lint
-COPY --from=build /usr/bin/ansible /usr/bin/ansible
-COPY --from=build /usr/bin/ansible-connection /usr/bin/ansible-connection
+WORKDIR /work
+
 COPY local/engine.json ./engine.json
 COPY local/codeclimate-ansible-lint local/codeclimate-format.py /usr/local/bin/
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN adduser --uid 9000 --gecos "" --disabled-password app \
   && apk --no-cache add --virtual build-deps \
+  bc~=1 \
+  cargo~=1 \
+  gcc~=10 \
   jq~=1 \
+  libffi-dev~=3 \
+  musl-dev~=1 \
+  openssl-dev~=1 \
+  python3-dev~=3 \
+  rust~=1 \
   && apk --no-cache add \
+  git~=2 \
   python3~=3 \
+  py3-pip~=20 \
+  && pip3 install --no-cache-dir \
+  "ansible==3.*" \
+  && pip3 install --no-cache-dir --no-compile \
+  "ansible-lint==5.*" \
   && ln -sf ansible /usr/bin/ansible-config \
   && ln -sf ansible /usr/bin/ansible-console \
   && ln -sf ansible /usr/bin/ansible-doc \
@@ -73,7 +67,7 @@ LABEL org.opencontainers.image.vendor="Megabyte Labs"
 LABEL org.opencontainers.image.version=$VERSION
 LABEL space.megabyte.type="codeclimate"
 
-FROM codeclimate-ansible-lint AS ansible-lint
+FROM codeclimate AS ansible-lint
 
 WORKDIR /work
 
