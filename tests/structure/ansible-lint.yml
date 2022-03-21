@@ -1,18 +1,18 @@
 ---
-schemaVersion: "2.0.0"
+schemaVersion: 2.0.0
 
 commandTests:
-  - name: "Test logging the version"
-    command: "ansible-lint"
-    args: ["--version"]
-    expectedOutput: [".*ansible-lint.*"]
+  - args: [--version]
+    command: ansible-lint
+    expectedOutput: ['.*ansible-lint.*']
 
+    name: Test logging the version
 metadataTest:
+  entrypoint: [ansible-lint]
   labels:
-    - key: 'maintainer'
-      value: 'Megabyte Labs <help@megabyte.space>'
-    - key: 'space.megabyte.type'
-      value: 'linter'
-  entrypoint: ["ansible-lint"]
-  workdir: "/work"
-  user: "root"
+    - key: maintainer
+      value: Megabyte Labs <help@megabyte.space>
+    - key: space.megabyte.type
+      value: linter
+  user: root
+  workdir: /work

@@ -1,16 +1,8 @@
 ---
 galaxy_info:
-  role_name: androidstudio
   author: professormanhattan
-  description: Installs Android Studio and sets up Android SDKs on nearly any OS
   company: Megabyte Labs
-  issue_tracker_url: https://gitlab.com/megabyte-labs/ansible-roles/androidstudio/-/issues
-  license: license (MIT)
-  min_ansible_version: 2.10
-  platforms:
-    - name: Ubuntu
-      versions:
-        - focal
+  description: Installs Android Studio and sets up Android SDKs on nearly any OS
   galaxy_tags:
     - android
     - androidstudio
@@ -20,6 +12,14 @@ galaxy_info:
     - google
     - apps
     - development
+  issue_tracker_url: https://gitlab.com/megabyte-labs/ansible-roles/androidstudio/-/issues
+  license: license (MIT)
+  min_ansible_version: 2.10
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+  role_name: androidstudio
 dependencies:
   - role: professormanhattan.snapd
     when: ansible_system == 'Linux'
