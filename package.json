@@ -82,9 +82,15 @@
     ],
     "description": "An Ansible Lint slim container and a CodeClimate engine container for GitLab CI",
     "dockerBaseTag": "ansible-lint",
+    "dockerLatestSize": {
+      "ansible-lint": ""
+    },
     "dockerSlimCommand": {
       "ansible-lint": "--http-probe=false --exec 'ansible-lint --version' --preserve-path-file 'local/paths.txt'",
       "codeclimate-ansible-lint": "--http-probe=false --exec 'ansible-lint --version' --preserve-path-file 'local/paths.codeclimate.txt'"
+    },
+    "dockerSlimSize": {
+      "ansible-lint": ""
     },
     "group": "docker",
     "name": "Ansible Lint",
@@ -96,13 +102,7 @@
     "slug": "ansible-lint",
     "subgroup": "codeclimate",
     "title": "Ansible Lint CodeClimate Engine",
-    "versionCommand": "docker run -it megabytelabs/ansible-lint:latest --version | sed 's/^[^ ]* //' | sed 's/ .*$//'",
-    "dockerSlimSize": {
-      "ansible-lint": ""
-    },
-    "dockerLatestSize": {
-      "ansible-lint": ""
-    }
+    "versionCommand": "docker run -it megabytelabs/ansible-lint:latest --version | sed 's/^[^ ]* //' | sed 's/ .*$//'"
   },
   "changelog": {
     "displayTypes": [
@@ -139,6 +139,10 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
+  "jscpd": {
+    "gitignore": true,
+    "threshold": 0.1
+  },
   "lint-staged": {
     "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
       "task fix:prettier --"
