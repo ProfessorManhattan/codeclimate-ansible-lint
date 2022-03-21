@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-ansible-lint -f codeclimate -c /config.json /code > /usr/src/app/result.json
-python3 /usr/src/app/lib/format-results.py
-rm /usr/src/app/result.json

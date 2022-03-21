@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if [ -f .config/ansible-lint.yml ]; then
+    CONFIG=".config/ansible-lint.yml"
+else
+    CONFIG="/config.json"
+fi
+RESULTS="$(mktemp)"
+ansible-lint -f codeclimate -c "$CONFIG" . >"$RESULTS"
+codeclimate-format.py "$RESULTS"
+rm "$RESULTS"
