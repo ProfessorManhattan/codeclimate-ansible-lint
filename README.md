@@ -29,8 +29,8 @@
 </div>
 <br/>
 <div align="center">
-  <a title="Version: 8.11.0" href="https://github.com/ProfessorManhattan/codeclimate-ansible-lint" target="_blank">
-    <img alt="Version: 8.11.0" src="https://img.shields.io/badge/version-8.11.0-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&cacheSeconds=2592000&style=flat-square" />
+  <a title="Version: 5.4.0" href="https://github.com/ProfessorManhattan/codeclimate-ansible-lint" target="_blank">
+    <img alt="Version: 5.4.0" src="https://img.shields.io/badge/version-5.4.0-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&cacheSeconds=2592000&style=flat-square" />
   </a>
   <a title="GitLab build status" href="https://gitlab.com/megabyte-labs/docker/codeclimate/ansible-lint/-/commits/master" target="_blank">
     <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/docker/codeclimate/ansible-lint?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
@@ -70,6 +70,8 @@
     - [CodeClimate GitLab CI Example](#codeclimate-gitlab-ci-example)
     - [CodeClimate CLI Walkthrough](#codeclimate-cli-walkthrough)
     - [Standalone Integration](#standalone-integration)
+- [About Ansible Lint](#about-ansible-lint)
+  - [Customizing the Configuration](#customizing-the-configuration)
   - [Building the Docker Container](#building-the-docker-container)
   - [Building a Slim Container](#building-a-slim-container)
   - [Build Tools](#build-tools)
@@ -197,7 +199,21 @@ include:
 
 That is it! Ansible Lint will now run anytime you commit code (that matches the parameters laid out in the `remote:` file above). Ideally, for production, you should copy the source code from the `remote:` link above to another location and update the `remote:` link to the file's new location. That way, you do not have to worry about any changes that are made to the `remote:` file by our team.
 
-{{ load:docs/partials/guide.md }}
+<a href="#about-ansible-lint" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## About Ansible Lint
+
+Ansible Lint is a command-line tool for linting playbooks, roles and collections aimed towards any Ansible users. Its main goal is to promote proven practices, patterns and behaviors while avoiding common pitfalls that can easily lead to bugs or make code harder to maintain.
+
+Ansible Lint is also supposed to help users upgrade their code to work with newer versions of Ansible. Due to this reason we recommend using it with the newest version of Ansible, even if the version used in production may be older.
+
+As any other linter, it is opinionated. Still, its rules are the result of community contributions and they can always be disabled based individually or by category by each user.
+
+[Ansible Galaxy project](https://github.com/ansible/galaxy/) makes use of this linter in order to compute quality scores for [Galaxy Hub](https://galaxy.ansible.com/) contributed content. This does not mean this tool is aimed only to those that want to share their code. Files like galaxy.yml, or sections like `galaxy_info` inside `meta.yml` help with documentation and maintenance, even for unpublished roles or collections.
+
+### Customizing the Configuration
+
+The CodeClimate engine will look for a configuration file stored in `.config/ansible-lint.yml` at first and then if that is not present it will use the configuration managed by the CodeClimate engine. You can customize the CodeClimate engine managed configuration by editing your `.codeclimate.yml` file.
 
 ### Building the Docker Container
 

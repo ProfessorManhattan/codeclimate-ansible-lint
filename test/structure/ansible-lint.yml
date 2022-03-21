@@ -5,15 +5,14 @@ commandTests:
   - args: [--version]
     command: ansible-lint
     expectedOutput: ['.*ansible-lint.*']
-
     name: Test logging the version
+
 metadataTest:
-  entrypoint: []
+  entrypoint: [ansible-lint]
   labels:
     - key: maintainer
       value: Megabyte Labs <help@megabyte.space>
     - key: space.megabyte.type
-      value: codeclimate
-  user: app
-  volumes: [/code]
-  workdir: /code
+      value: linter
+  user: root
+  workdir: /work
