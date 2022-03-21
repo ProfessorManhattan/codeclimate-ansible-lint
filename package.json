@@ -94,6 +94,7 @@
       "ansible-lint": "197M",
       "codeclimate": "197M"
     },
+    "github_id": "R_kgDOHCYcyg",
     "group": "docker",
     "name": "Ansible Lint",
     "overview": "This project is the home of an [Ansible Lint](https://github.com/ansible-community/ansible-lint) [CodeClimate](https://codeclimate.com/) engine. It was built to integrate Ansible Lint results into the GitLab merge request web UI. This project builds multiple types of containers. It builds a CodeClimate engine and a standalone linter. Both of these types are available as slim builds.",
@@ -104,8 +105,7 @@
     "slug": "ansible-lint",
     "subgroup": "codeclimate",
     "title": "Ansible Lint CodeClimate Engine",
-    "versionCommand": "docker run -it megabytelabs/ansible-lint:latest --version | sed 's/^[^ ]* //' | sed 's/ .*$//'",
-    "github_id": "R_kgDOHCYcyg"
+    "versionCommand": "docker run -it megabytelabs/ansible-lint:latest --version | sed 's/^[^ ]* //' | sed 's/ .*$//'"
   },
   "changelog": {
     "displayTypes": [
@@ -118,7 +118,9 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [],
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "engine": "node >= 0.12.4",
