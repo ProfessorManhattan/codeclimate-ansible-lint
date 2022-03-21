@@ -27,7 +27,7 @@ integration:standalone:
     name: megabytelabs/ansible-lint:slim
     entrypoint: ['']
   script:
-    - ansible-lint -c .config/ansible-lint.yml .
+    - ansible-lint --version
 integration:codeclimate:
   image: megabytelabs/codeclimate:slim
   script:
