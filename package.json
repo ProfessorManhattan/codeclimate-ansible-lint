@@ -1,81 +1,5 @@
 {
-  "private": false,
-  "name": "@megabytelabs/codeclimate-ansible-lint",
-  "version": "5.4.0",
-  "description": "An Ansible Lint slim container and a CodeClimate engine container for GitLab CI",
-  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "homepage": "https://megabyte.space",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/codeclimate-ansible-lint.git"
-  },
-  "bugs": {
-    "email": "help@megabyte.space",
-    "url": "https://gitlab.com/megabyte-labs/docker/codeclimate/ansible-lint/-/issues"
-  },
-  "type": "commonjs",
-  "main": "dist/main.js",
-  "files": [
-    "bin/",
-    "dist/"
-  ],
-  "scripts": {
-    "build": "bash start.sh && task docker:build",
-    "bump": "npm run build && npm version patch --no-commit-hooks --no-git-tag-version --force && npm publish",
-    "commit": "bash start.sh && task commit",
-    "fix": "bash start.sh && task fix",
-    "help": "bash start.sh && task --menu",
-    "lint": "bash start.sh && task lint",
-    "preload": "bash start.sh && task preload",
-    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
-    "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
-    "release": "bash start.sh && task publish:semantic-release",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
-    "test": "bash start.sh && task docker:test",
-    "unpack": "bash start.sh && task npm:bundle:unpack",
-    "update": "bash start.sh && task update"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/git-cz-emoji"
-    }
-  },
-  "typings": "dist/main.d.ts",
-  "dependencies": {},
-  "optionalDependencies": {},
-  "devDependencies": {
-    "@commitlint/config-conventional": "latest",
-    "eslint-config-strict-mode": "latest",
-    "git-cz-emoji": "latest",
-    "handlebars-helpers": "latest",
-    "prettier-config-sexy-mode": "latest",
-    "semantic-release-config": "latest",
-    "typescript": "^4.5.5"
-  },
-  "keywords": [
-    "ci",
-    "codeclimate",
-    "container",
-    "docker",
-    "dockerfile",
-    "gitlab",
-    "gitlab-ci",
-    "mblabs",
-    "megabytelabs",
-    "pipeline",
-    "professormanhattan",
-    "virtualization",
-    "washingtondc"
-  ],
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "publishConfig": {
-    "@megabyte:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
-    "access": "public"
-  },
   "blueprint": {
     "codeClimateLanguages": [
       "YAML"
@@ -99,13 +23,17 @@
     "name": "Ansible Lint",
     "overview": "This project is the home of an [Ansible Lint](https://github.com/ansible-community/ansible-lint) [CodeClimate](https://codeclimate.com/) engine. It was built to integrate Ansible Lint results into the GitLab merge request web UI. This project builds multiple types of containers. It builds a CodeClimate engine and a standalone linter. Both of these types are available as slim builds.",
     "repository": {
-      "github": "https://github.com/ProfessorManhattan/codeclimate-ansible-lint",
+      "github": "https://github.com/megabyte-labs/codeclimate-ansible-lint",
       "gitlab": "https://gitlab.com/megabyte-labs/docker/codeclimate/ansible-lint"
     },
     "slug": "ansible-lint",
     "subgroup": "codeclimate",
     "title": "Ansible Lint CodeClimate Engine",
     "versionCommand": "docker run -it megabytelabs/ansible-lint:latest --version | sed 's/^[^ ]* //' | sed 's/ .*$//'"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/docker/codeclimate/ansible-lint/-/issues"
   },
   "changelog": {
     "displayTypes": [
@@ -123,7 +51,26 @@
     ],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/git-cz-emoji"
+    }
+  },
+  "dependencies": {},
+  "description": "An Ansible Lint slim container and a CodeClimate engine container for GitLab CI",
+  "devDependencies": {
+    "@commitlint/config-conventional": "latest",
+    "eslint-config-strict-mode": "latest",
+    "git-cz-emoji": "latest",
+    "handlebars-helpers": "latest",
+    "prettier-config-sexy-mode": "latest",
+    "semantic-release-config": "latest",
+    "typescript": "^4.5.5"
+  },
   "engine": "node >= 0.12.4",
+  "engines": {
+    "node": ">=14.18.0"
+  },
   "eslintConfig": {
     "extends": "eslint-config-strict-mode",
     "ignorePatterns": [
@@ -132,6 +79,10 @@
     ],
     "rules": {}
   },
+  "files": [
+    "bin/",
+    "dist/"
+  ],
   "funding": [
     {
       "type": "opencollective",
@@ -142,10 +93,27 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
+  "homepage": "https://megabyte.space",
   "jscpd": {
     "gitignore": true,
     "threshold": 0.1
   },
+  "keywords": [
+    "ci",
+    "codeclimate",
+    "container",
+    "docker",
+    "dockerfile",
+    "gitlab",
+    "gitlab-ci",
+    "mblabs",
+    "megabytelabs",
+    "pipeline",
+    "professormanhattan",
+    "virtualization",
+    "washingtondc"
+  ],
+  "license": "MIT",
   "lint-staged": {
     "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
       "task fix:prettier --"
@@ -213,6 +181,8 @@
       "task image:compress --"
     ]
   },
+  "main": "dist/main.js",
+  "name": "@megabytelabs/codeclimate-ansible-lint",
   "ntl": {
     "descriptions": {
       "build": "Builds the project using the build command specified under scripts in package.json",
@@ -231,6 +201,7 @@
       "update": "Update and refresh the repository with upstream changes and templated parts"
     }
   },
+  "optionalDependencies": {},
   "pnpm": {
     "allowedVersions": {
       "@typescript-eslint/eslint-plugin": "5",
@@ -250,6 +221,11 @@
     }
   },
   "prettier": "prettier-config-sexy-mode",
+  "private": false,
+  "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
+    "access": "public"
+  },
   "release": {
     "branches": [
       "main",
@@ -258,12 +234,32 @@
       {
         "name": "beta",
         "prerelease": true
-      },
-      {
-        "name": "alpha",
-        "prerelease": true
       }
     ],
     "extends": "semantic-release-config"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megabyte-labs/codeclimate-ansible-lint.git"
+  },
+  "scripts": {
+    "build": "bash start.sh && task docker:build",
+    "bump": "npm run build && npm version patch --no-commit-hooks --no-git-tag-version --force && npm publish",
+    "commit": "bash start.sh && task commit",
+    "fix": "bash start.sh && task fix",
+    "help": "bash start.sh && task --menu",
+    "lint": "bash start.sh && task lint",
+    "preload": "bash start.sh && task preload",
+    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
+    "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
+    "release": "bash start.sh && task publish:semantic-release",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
+    "test": "bash start.sh && task docker:test",
+    "unpack": "bash start.sh && task npm:bundle:unpack",
+    "update": "bash start.sh && task update"
+  },
+  "type": "commonjs",
+  "typings": "dist/main.d.ts",
+  "version": "5.4.0"
 }

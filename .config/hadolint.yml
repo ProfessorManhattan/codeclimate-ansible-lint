@@ -1,0 +1,4 @@
+---
+ignored:
+  - DL3004 # Do not use sudo
+  - DL3007 # Do not use `latest` images
