@@ -10,3 +10,4 @@
 /usr/bin/ansible-pull
 /usr/bin/ansible-test
 /usr/bin/ansible-vault
+/usr/lib/python3.9/site-packages/ansiblelint

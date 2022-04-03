@@ -12,3 +12,4 @@
 /usr/bin/ansible-vault
 /usr/local/bin/codeclimate-format.py
 /usr/local/bin/codeclimate-ansible-lint
+/usr/lib/python3.9/site-packages/ansiblelint
