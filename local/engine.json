@@ -1,11 +1,11 @@
 {
-  "name": "ansible-lint",
   "description": "An Ansible Lint slim container and a CodeClimate engine container for GitLab CI",
-  "maintainer": {
-    "name": "Megabyte Labs",
-    "email": "help@megabyte.space"
-  },
   "languages": ["YAML"],
-  "version": "5.4.0",
-  "spec_version": "0.3.1"
+  "maintainer": {
+    "email": "help@megabyte.space",
+    "name": "Megabyte Labs"
+  },
+  "name": "ansible-lint",
+  "spec_version": "0.3.1",
+  "version": "5.4.0"
 }

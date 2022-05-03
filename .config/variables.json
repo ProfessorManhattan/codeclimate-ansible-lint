@@ -11,14 +11,8 @@
   "autodoc_variables_description": "",
   "badge_style": "for-the-badge",
   "blueprint_variables": [
-    [
-      "Variable",
-      "Description"
-    ],
-    [
-      "`badge_style`",
-      "Badge style to use from shields.io when generating the documentation"
-    ],
+    ["Variable", "Description"],
+    ["`badge_style`", "Badge style to use from shields.io when generating the documentation"],
     [
       "`description_template`",
       "This is used to populate the description in the `package.json` file which in turn gets used in the README and also may be used to describe the project on other websites. When you add the text `IMAGE_SIZE_PLACEHOLDER` to this variable, it will be replaced with container size information."
@@ -71,12 +65,7 @@
   "dockerExampleCommand": "--help",
   "docker_label_authors": "Brian Zalewski <brian@megabyte.space>",
   "docker_tests": [
-    [
-      "Test Type",
-      "Test Description",
-      "Required",
-      "Example"
-    ],
+    ["Test Type", "Test Description", "Required", "Example"],
     [
       "**Docker.test.yml ContainerStructureTest**",
       "If the project has a `Docker.test.yml` file defined, then a [ContainerStructureTest](https://github.com/GoogleContainerTools/container-structure-test) will be run on both the regular and slim build (if there is one). If there are not multiple build targets defined in the `Dockerfile`, then you should use this type of test (by naming the test `Docker.test.yml`). Ideally, you should leverage some sample project files which should be stored in a folder in the `test/` directory.",
@@ -115,45 +104,19 @@
     "header_title_pre": "<i></i>",
     "link": "https://megabyte.space/docs/docker/ci"
   },
+  "downloadLinks": {
+    "fedora": "https://download.fedoraproject.org/pub/fedora/linux/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso",
+    "kali": "https://cdimage.kali.org/kali-2022.1/kali-linux-2022.1-installer-amd64.iso",
+    "qubes": "https://ftp.qubes-os.org/iso/Qubes-R4.1.0-x86_64.iso",
+    "tails": "https://ftp.osuosl.org/pub/tails/stable/tails-amd64-4.29/tails-amd64-4.29.iso",
+    "ubuntu": "https://mirror.arizona.edu/ubuntu-releases/21.10/ubuntu-21.10-desktop-amd64.iso",
+    "windows": "https://software.download.prss.microsoft.com/db/Win11_English_x64.iso?t=c15e0cba-9c8d-4984-b30f-43c42425733d&e=1650582458&h=960d57d2c6a0243e32d3106c0d8f82387966ddf9a9bfce82f89e66866457c014"
+  },
   "email": {
     "help": "help@megabyte.space"
   },
-  "emoji_beginnings": [
-    "🚀 ",
-    "🔥👉 ",
-    "👉 ",
-    "😉 ",
-    "🆓 ",
-    "🐴 ",
-    "👀 ",
-    "🎉 ",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  "emoji_endings": [
-    " 🚀",
-    " 🔥🔥🔥",
-    " 👏",
-    " 😉",
-    " 🐙",
-    " 🐴",
-    " 👀",
-    " 🎟",
-    " 🎉🎉",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
+  "emoji_beginnings": ["🚀 ", "🔥👉 ", "👉 ", "😉 ", "🆓 ", "🐴 ", "👀 ", "🎉 ", "", "", "", "", "", "", "", ""],
+  "emoji_endings": [" 🚀", " 🔥🔥🔥", " 👏", " 😉", " 🐙", " 🐴", " 👀", " 🎟", " 🎉🎉", "", "", "", "", "", "", ""],
   "github_prefix": "docker-",
   "gitlab_pipelines": [
     {
@@ -187,40 +150,13 @@
   "gomodProxy": true,
   "group": "common",
   "groups": {
-    "angular": [
-      "app",
-      "website"
-    ],
-    "ansible": [
-      "playbook",
-      "role"
-    ],
-    "docker": [
-      "ansible-molecule",
-      "app",
-      "ci-pipeline",
-      "codeclimate",
-      "software"
-    ],
-    "go": [
-      "cli",
-      "library"
-    ],
-    "npm": [
-      "app",
-      "cli",
-      "config",
-      "library",
-      "plugin"
-    ],
-    "packer": [
-      "desktop",
-      "server"
-    ],
-    "python": [
-      "cli",
-      "library"
-    ]
+    "angular": ["app", "website"],
+    "ansible": ["playbook", "role"],
+    "docker": ["ansible-molecule", "app", "ci-pipeline", "codeclimate", "software"],
+    "go": ["cli", "library"],
+    "npm": ["app", "cli", "config", "library", "plugin"],
+    "packer": ["desktop", "server"],
+    "python": ["cli", "library"]
   },
   "homebrew": {
     "folder": "Formula",
@@ -233,6 +169,7 @@
   "link": {
     "chat": "https://app.slack.com/client/T01ABCG4NK1/C01NN74H0LW/details/",
     "docs": "https://megabyte.space/docs",
+    "gitter": "https://gitter.im/megabyte-labs/community",
     "home": "https://megabyte.space",
     "installdoctor": "https://install.doctor",
     "privacy": "https://megabyte.space/privacy",
